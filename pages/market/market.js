@@ -10,6 +10,7 @@ Page({
       { id: 1, price: 10, buy_quantity: 0, name: '贺卡', image: '/images/project_pictures/project002.jpg' },
       { id: 2, price: 20, buy_quantity: 0, name: '笔记本', image: '/images/project_pictures/project003.jpg' }
     ],
+    totalPrice:0
 
   },
   wxnavigateTo(){
