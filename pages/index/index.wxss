@@ -1,0 +1,68 @@
+/**index.wxss**/
+.button_container{
+  display: flex;
+  justify-content: left;
+  height: 200rpx;
+  
+}
+.large_button{
+  width: 750rpx;
+  background-color: limegreen;
+}
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16rpx;
+  border-radius: 10rpx;
+  flex-wrap: wrap;
+  background-color: blanchedalmond;
+  margin: 10rpx ;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+  width: 325rpx;
+  height: 325rpx;
+  background-color:burlywood;
+  align-items: center;
+  border-radius: 25rpx;
+}
+.small_item{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  width: 160rpx;
+  height: 175rpx;
+  background-color:burlywood;
+  align-items: center;
+  border-radius: 20rpx;
+  margin: 20rpx 0rpx 0rpx 0rpx;
+}
+.large_img{
+  width: 250rpx;
+  height: 200rpx;
+  border-radius: 15rpx;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.medium_img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5rpx;
+}
+.normal_text{
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  align-items: center;
+}
+
+

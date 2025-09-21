@@ -1,0 +1,6 @@
+<!--pages/myhome/myhome.wxml-->
+<view class="top_heading"><text>个人信息</text></view>
+<view class="third_heading"><text>用户名</text></view>
+<view class="medium_background"></view>
+<view class="large_background"></view>
+<view class="small_background"></view>

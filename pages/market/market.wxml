@@ -1,0 +1,36 @@
+<!--pages/market/market.wxml-->
+
+<view class="information" style="background-color:wheat">
+  <button size="mini" type="default">自提</button>
+  <button size="mini" type="default">快递</button>
+  <view class="address">
+  <text>地址：西电南校区大学生活动中心107</text>
+  </view>
+  <view></view>
+</view>
+<view class="product-list">
+  <block wx:for="{{product_info}}" wx:key="id">
+    <view class="product-card">
+
+      <image class="product-img" src="{{item.image}}" mode="aspectFill"></image>
+
+
+      <text class="product-name">{{item.name}}</text>
+
+
+      <text class="product-price">单价￥{{item.price}}</text>
+
+      <text class="product-quantity">数量：{{item.buy_quantity}}</text>
+
+      <view class="btn-group">
+        <button bindtap="quantityChange"  data-id="{{item.id}}" data-type="minus">-</button>
+        <button bindtap="quantityChange"  data-id="{{item.id}}" data-type="plus">+</button>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="cart-footer">
+  <view class="total">合计金额：￥{{totalPrice}}</view>
+  <button type="warn" size="mini" bind:tap="wxnavigateTo">去支付</button>
+</view>

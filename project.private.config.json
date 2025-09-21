@@ -1,0 +1,16 @@
+{
+  "libVersion": "3.10.0",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/market/market",
+          "pathName": "pages/market/market",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
+        }
+      ]
+    }
+  }
+}

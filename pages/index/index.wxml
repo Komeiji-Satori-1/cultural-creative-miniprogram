@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<swiper circular="4500" autoplay="true" indicator-dots="true">
+  <swiper-item>
+    <image src="/images/project_pictures/project001.jpg" style="height: 150px;" mode="heightFix" />
+    <view class="Secondary_heading">种子纸贺卡</view>
+  </swiper-item>
+
+  <swiper-item>
+    <view>
+      <image src="/images/project_pictures/project002.jpg" style="height: 150px;" mode="heightFix" />
+      <view class="Secondary_heading">种子纸机票</view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <image src="/images/project_pictures/project003.jpg" style="height: 150px;" mode="heightFix" />
+    <view class="Secondary_heading">西电笔记本</view>
+  </swiper-item>
+</swiper>
+
+<view class="tips">
+  <text class="iconfont icon-dengpaotishi icon">
+  </text>
+  <text>欢迎使用西电校团委文创中心小程序</text>
+</view>
+
+<view class="menu">
+  <view class="item" bind:tap="navigateTo_market">
+    <image src="/images/menu/daodian.png" mode="" class="large_img" id="01" />
+    <text class="third_heading">
+      到店自取
+    </text>
+  </view>
+
+  <view class="item" bind:tap="navigateTo_delivery">
+    <image src="/images/menu/waimai.png" mode="" class="large_img" id="02"/>
+    <text class="third_heading">
+      快递配送
+    </text>
+  </view>
+
+  <view class="small_item"bind:tap="navigateTo_request">
+    <image src="/images/menu/buhuo.png" mode="" class="medium_img" />
+    <text class="normal_text">
+      申请补货
+    </text>
+  </view>
+
+  <view class="small_item"bind:tap="navigateTo_latest_items">
+    <image src="/images/menu/xinpin.png" mode="" class="medium_img" />
+    <text class="normal_text">
+      新品上架
+    </text>
+  </view>
+
+  <view class="small_item"bind:tap="navigateTo_group">
+    <image src="/images/menu/qunliao.png" mode="" class="medium_img" />
+    <text class="normal_text">
+      社群福利
+    </text>
+  </view>
+
+  <view class="small_item"bind:tap="navigateTo_purchase">
+    <image src="/images/menu/tonggou.png" mode="" class="medium_img" />
+    <text class="normal_text">
+      校院统购
+    </text>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+/**app.wxss**/
+@import"/mycss/wx_css/font.wxss";
+@import"/mycss/wx_css/image.wxss"
