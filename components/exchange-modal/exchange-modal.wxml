@@ -1,0 +1,34 @@
+<view class="modal-container {{isShow ? 'modal-show' : ''}}" bindtap="tapMask">
+    
+    <view class="modal-mask"></view>
+
+    <view class="modal-content" catchtap="preventDeduce">
+        
+        <view class="modal-header">
+            <view class="header-summary">
+                <text class="discount-value">{{titleSummary}}</text>
+                <text class="cost-points">{{pointSummary}}</text>
+            </view>
+            <text class="close-btn" bindtap="closeModal">×</text>
+        </view>
+        
+        <scroll-view scroll-y class="rules-scroll-area">
+            <text class="rules-title">使用规则说明</text>
+            <view class="rules-list">
+                <block wx:for="{{rulesList}}" wx:key="*this">
+                    <view class="rule-item">{{index + 1}}. {{item}}</view>
+                </block>
+            </view>
+        </scroll-view>
+
+        <view class="confirm-text">
+            您确定要使用 {{pointSummary}} 兑换该礼券吗？
+        </view>
+        
+        <view class="modal-footer">
+            <view class="action-btn cancel-btn" bindtap="onCancel">取消</view>
+            <view class="action-btn confirm-btn" bindtap="onConfirm">确认</view>
+        </view>
+
+    </view>
+</view>

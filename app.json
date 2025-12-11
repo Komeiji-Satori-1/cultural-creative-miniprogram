@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/PointsMall/PointsMall",
+    "pages/Login/Login",
+    "pages/myhome/myhome",
+    "pages/order/order",
+    "pages/market/market",
+    "pages/latest_items/latest_items",
+    "pages/refund/refund",
+    "pages/detail/detail",
+    "pages/orderDetail/orderDetail",
+    "pages/address/list/list",
+    "pages/address/edit/edit",
+    "pages/confirm_order/confirm_order",
+    "pages/Wechat_Group/Wechat_Group",
+    "pages/User_coupon/User_coupon"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "window": {
+    "navigationBarTitleText": "测试功能",
+    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "style": "v2",
+  "tabBar": {
+    "selectedColor": "#FF0600",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/images/briefcase-5-line.png",
+        "selectedIconPath": "/images/briefcase-5-fill.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "/images/file-list-line.png",
+        "selectedIconPath": "/images/file-list-fill.png"
+      },
+      {
+        "pagePath": "pages/market/market",
+        "text": "产品购买",
+        "iconPath": "/images/git-repository-private-line.png",
+        "selectedIconPath": "/images/git-repository-private-fill.png"
+      },
+      {
+        "pagePath": "pages/myhome/myhome",
+        "text": "个人信息",
+        "iconPath": "/images/user-line.png",
+        "selectedIconPath": "/images/user-fill.png"
+      }
+    ]
+  }
+}

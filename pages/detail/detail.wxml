@@ -1,0 +1,38 @@
+<view class="detail-page">
+
+  <view class="product-image-section">
+    <swiper autoplay="true" indicator-dots="true" class="image-swiper">
+      <block wx:for="{{product.images}}" wx:key="id">
+        <swiper-item>
+          <image src="{{product.image_url}}" class="product-img" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view wx:if="{{product.stock_status}}" class="stock-tag">
+      {{product.stock_status}}
+    </view>
+  </view>
+
+  <view class="info-card">
+    <view class="product-name">{{product.name}}</view>
+  </view>
+
+  <view wx:if="{{product.description}}" class="description-card">
+    {{product.description}}
+  </view>
+
+  <view class="bottom-bar">
+
+    <text class="product-price-bottom">¥{{product.price}}</text>
+
+    <view class="quantity-selector-bottom">
+      <button class="qty-btn" bindtap="decrease" size="mini">-</button>
+      <text class="quantity">{{buy_quantity}}</text>
+      <button class="qty-btn" bindtap="increase" size="mini">+</button>
+    </view>
+
+    <view class="buy-now-btn" bindtap="buyNow">立即购买</view>
+
+  </view>
+
+</view>

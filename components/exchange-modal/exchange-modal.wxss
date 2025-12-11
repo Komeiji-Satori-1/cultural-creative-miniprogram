@@ -1,0 +1,153 @@
+/* -------------------- 弹窗基础布局 -------------------- */
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 让内容主体在底部 */
+  opacity: 0; /* 默认隐藏 */
+  visibility: hidden;
+  transition: all 0.3s ease; /* 整体过渡动画 */
+}
+
+/* 遮罩层 */
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 弹窗主体容器 */
+.modal-content {
+  background-color: #ffffff; /* 弹窗主体使用白色背景 */
+  width: 100%;
+  /* 底部安全区适配 */
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  border-radius: 20rpx 20rpx 0 0;
+  transform: translateY(100%); /* 初始位置：完全移出屏幕底部 */
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh; /* 限制弹窗最大高度 */
+}
+
+/* -------------------- 动画控制 -------------------- */
+
+.modal-container.modal-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container.modal-show .modal-mask {
+  opacity: 1;
+}
+
+.modal-container.modal-show .modal-content {
+  transform: translateY(0); /* 移入屏幕 */
+}
+
+
+/* -------------------- 头部和内容样式 -------------------- */
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30rpx 30rpx 20rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.header-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.cost-points {
+  font-size: 28rpx;
+  color: #666666;
+  margin-top: 5rpx;
+}
+
+.close-btn {
+  font-size: 40rpx;
+  color: #999;
+  padding: 0 10rpx;
+}
+
+/* 规则区域 */
+.rules-scroll-area {
+  padding: 30rpx 30rpx 0;
+  flex-grow: 1; /* 允许滚动区域占据剩余高度 */
+}
+
+.rules-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.rule-item {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10rpx;
+  text-align: justify;
+}
+
+.confirm-text {
+  font-size: 28rpx;
+  color: #999;
+  padding: 30rpx;
+  text-align: center;
+}
+
+/* -------------------- 底部按钮 -------------------- */
+
+.modal-footer {
+  display: flex;
+  padding: 20rpx 30rpx;
+  /* 顶部添加边框，与内容区分 */
+  border-top: 1rpx solid #eeeeee; 
+}
+
+.action-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  margin: 0 10rpx;
+  text-align: center;
+}
+
+.cancel-btn {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1rpx solid #cccccc;
+}
+
+.confirm-btn {
+  background-color: #000000; /* 确认按钮使用黑色，符合截图风格 */
+  color: #ffffff;
+  border: none;
+}

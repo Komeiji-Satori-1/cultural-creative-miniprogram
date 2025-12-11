@@ -1,0 +1,5 @@
+/* pages/address/edit/edit.wxss */
+container { padding: 20rpx; }
+.input, .textarea { width: 100%; margin-bottom: 20rpx; padding: 20rpx; border-radius: 20rpx; background: #fff; }
+.save-btn { background: #007aff; color: white; margin-top: 20rpx; }
+.delete-btn { background: #ff3b30; color: white; margin-top: 20rpx; }

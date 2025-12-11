@@ -1,0 +1,7 @@
+/* pages/address/list/list.wxss */
+.container { padding: 20rpx; }
+.addr-item { background: #fff; padding: 20rpx; margin-bottom: 20rpx; border-radius: 20rpx; }
+.name { font-size: 32rpx; font-weight: bold; }
+.detail { font-size: 26rpx; color: #666; margin-top: 10rpx; }
+.edit-btn { margin-top: 10rpx; background: #007aff; color: white; }
+.add-btn { margin-top: 40rpx; background: #28a745; color: #fff; }

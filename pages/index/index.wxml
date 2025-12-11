@@ -1,0 +1,49 @@
+<!-- pages/index/index.wxml -->
+<view class="home-container fade-in">
+
+<swiper class="banner slide-in" circular autoplay indicator-dots indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#07C160">
+  <swiper-item wx:for="{{banners}}" wx:key="index">
+    <image src="{{item.src}}" mode="aspectFill" class="banner-img" />
+    <view class="banner-title">{{item.title}}</view>
+  </swiper-item>
+</swiper>
+
+<view class="welcome-tips fade-in-delay">
+  <text class="iconfont icon-dengpaotishi icon"></text>
+  <text class="welcome-text">欢迎使用西电校团委文创中心小程序</text>
+</view>
+
+<view class="menu-grid slide-up">
+
+  <view class="menu-item large" bindtap="navigateTo_market">
+    <image src="/images/menu/daodian.png" class="menu-icon" />
+    <text>门店自提</text>
+  </view>
+
+  <view class="menu-item large" bindtap="navigateTo_delivery">
+    <image src="/images/menu/waimai.png" class="menu-icon" />
+    <text>快递配送</text>
+  </view>
+
+  <view class="menu-item" bindtap="navigateTo_PointsMall">
+    <image src="/images/menu/buhuo.png" class="menu-icon" />
+    <text>积分商城</text>
+  </view>
+
+  <view class="menu-item" bindtap="navigateTo_latest_items">
+    <image src="/images/menu/xinpin.png" class="menu-icon" />
+    <text>产品上新</text>
+  </view>
+
+  <view class="menu-item" bindtap="navigateTo_group">
+    <image src="/images/menu/qunliao.png" class="menu-icon" />
+    <text>社群福利</text>
+  </view>
+
+  <view class="menu-item" bindtap="navigateTo_purchase">
+    <image src="/images/menu/tonggou.png" class="menu-icon" />
+    <text>校院统购</text>
+  </view>
+
+</view>
+</view>

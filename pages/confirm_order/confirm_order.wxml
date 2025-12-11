@@ -1,0 +1,77 @@
+<view class="container">
+
+  <!-- 订单商品列表 -->
+  <view class="section">
+    <view class="section-title">商品信息</view>
+
+    <block wx:for="{{items}}" wx:key="id">
+      <view class="product-item">
+        <image class="product-img" src="{{item.image_url}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <view class="product-name">{{item.name}}</view>
+          <view class="product-spec">
+            数量：{{item.buy_quantity}}　
+            单价：¥{{item.price}}
+          </view>
+        </view>
+        <view class="product-total">¥{{item.price * item.buy_quantity}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- 地址选择 -->
+  <view class="section" wx:if="{{ method == 'delivery' }}">
+    <view class="section-title">配送地址</view>
+
+    <picker mode="selector" range="{{addresses}}" range-key="display" bindchange="onAddressChange">
+      <view class="address-box">
+        <text wx:if="{{selectedAddress}}">
+          {{selectedAddress.detail}}
+        </text>
+        <text wx:else>请选择地址</text>
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section-title">可用优惠券</view>
+    <picker mode="selector" range="{{coupons}}" range-key="name" bindchange="selectCoupon">
+      <view class="address-box">
+        <text>
+          {{selectedCoupon ? selectedCoupon.name : '未选择'}}
+        </text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 金额明细 -->
+  <view class="section">
+    <view class="section-title">金额明细</view>
+
+    <view class="price-row">
+      <text>商品金额</text>
+      <text>¥{{totalAmount}}</text>
+    </view>
+
+    <view class="price-row">
+      <text>运费</text>
+      <text>¥{{shippingFee}}</text>
+    </view>
+    <view class="price-row">
+      <text>优惠</text>
+      <text>¥-{{selectedCoupon.discount || 0}}</text>
+    </view>
+    <view class="price-total">
+      <text>应付总额</text>
+      <text class="highlight">¥{{ payAmount }}</text>
+    </view>
+  </view>
+
+</view>
+
+<!-- 底部按钮 -->
+<view class="bottom-bar">
+  <view class="total-text">合计：<text class="highlight">¥{{payAmount}}</text></view>
+
+  <button class="pay-btn" bindtap="confirmPay">
+    确认支付
+  </button>
+</view>

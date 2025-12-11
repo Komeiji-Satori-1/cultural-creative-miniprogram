@@ -1,0 +1,164 @@
+/* 积分显示区域，确保和 Tab Bar 在同一行 */
+.points-header {
+  padding: 50rpx 30rpx 30rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 保持左对齐 */
+}
+
+.points-info {
+  display: flex;
+  align-items: baseline; /* 让标签和数值底部对齐 */
+}
+
+.label {
+  font-size: 32rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.points-amount {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tab Bar 分类导航 */
+.tab-bar {
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.tab-item {
+  font-size: 30rpx;
+  color: #999;
+  margin-right: 40rpx;
+  padding-bottom: 10rpx;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #333;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 6rpx;
+  background-color: #000000; /* 或您截图上的黑色 */
+  border-radius: 3rpx;
+}
+/* 两列网格布局 */
+.coupon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+
+.coupon-card {
+  width: 280rpx; /* 确保两列，并留出 30rpx 的间距 */
+  height: 250rpx; /* 固定高度，保持一致性 */
+  margin-bottom: 30rpx;
+  background-color: #ffffff;
+  border: 1rpx solid #eee;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  position: relative; /* 关键：用于票根圆角和阴影 */
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05); /* 轻微阴影 */
+  
+  /* 内部 Flex 布局，让内容垂直排列 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.coupon-value {
+  padding-top: 40rpx; /* 顶部留白 */
+  text-align: center;
+}
+
+.currency {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.amount {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+.coupon-type {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.coupon-points-area {
+  margin-bottom: 20rpx;
+  justify-content: center;
+}
+
+.coupon-points {
+  font-size: 28rpx;
+  color: #999;
+  justify-content: center;
+}
+
+.exchange-placeholder {
+  /* 占位符，保持底部对齐，但此处截图样式中没有按钮，所以主要靠票根圆角做视觉分隔 */
+  display: none; /* 隐藏我们 WXML 中的占位符，仅保留卡片结构 */
+}
+/* 票根装饰性圆角 */
+.coupon-card::before,
+.coupon-card::after {
+  content: '';
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #f7f7f7; /* 背景色必须和页面的背景色一致！ */
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* 左右两侧的四个圆角切口 */
+.coupon-card::before {
+  top: -10rpx;
+  left: -10rpx;
+}
+
+.coupon-card::after {
+  top: -10rpx;
+  right: -10rpx;
+}
+
+/* 底部左右切口，需要单独的伪元素或结构来实现，简化起见我们使用 WXML 中的四个空元素 */
+.cut-out-top-left, .cut-out-top-right,
+.cut-out-bottom-left, .cut-out-bottom-right {
+    position: absolute;
+    width: 20rpx;
+    height: 20rpx;
+    background-color: #f7f7f7; /* 确保与页面背景色一致 */
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.cut-out-top-left { top: -10rpx; left: -10rpx; }
+.cut-out-top-right { top: -10rpx; right: -10rpx; }
+.cut-out-bottom-left { bottom: -10rpx; left: -10rpx; }
+.cut-out-bottom-right { bottom: -10rpx; right: -10rpx; }
+
+/* 确保容器背景色是白色，并设置页面背景色 */
+.container {
+  background-color: #f7f7f7; /* 页面背景色 */
+}

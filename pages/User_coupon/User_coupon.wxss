@@ -1,0 +1,92 @@
+.container {
+  padding: 20rpx;
+}
+
+/* ===== Tabs ===== */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 20rpx 0;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.tab-item {
+  font-size: 30rpx;
+  color: #666;
+  padding-bottom: 10rpx;
+}
+
+.tab-item.active {
+  color: #ff5000;
+  border-bottom: 4rpx solid #ff5000;
+}
+
+/* ===== Coupon Item ===== */
+.coupon-item {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.left {
+  width: 200rpx;
+  text-align: center;
+  border-right: 2rpx dashed #ddd;
+  margin-right: 20rpx;
+}
+
+.amount {
+  font-size: 48rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.currency {
+  font-size: 30rpx;
+}
+
+.min {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.right {
+  flex: 1;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 15rpx;
+}
+
+.use-btn {
+  color: #ff5000;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.status-tag {
+  font-size: 28rpx;
+}
+
+.status-tag.used {
+  color: #52c41a;
+}
+
+.status-tag.expired {
+  color: #999;
+}

@@ -1,0 +1,45 @@
+<view class="container">
+
+
+  <view class="points-header">
+    <view class="points-info">
+      <text class="label">可用积分</text>
+      <text class="points-amount">{{userPoints}}</text>
+    </view>
+  </view>
+
+  <view class="tab-bar">
+    <text class="tab-item active">代金券</text>
+    <text class="tab-item">实物礼</text>
+  </view>
+
+  <view class="coupon-grid" style="height: 1300rpx; display: flex; box-sizing: border-box">
+    <block wx:for="{{coupons}}" wx:key="id">
+      <view class="coupon-card" bind:tap="showExchangeModal" data-title="{{item.discount_amount}}" data-points="{{item.cost_points}}" data-id="{{item.id}}">
+        <view class="coupon-value">
+          <text class="currency">¥</text>
+          <text class="amount">{{item.discount_amount}}</text>
+        </view>
+
+        <text class="coupon-type">代金券</text>
+
+        <view class="coupon-points-area">
+          <text class="coupon-points">{{item.cost_points}} 积分</text>
+        </view>
+
+        <view class="exchange-placeholder">
+          <text wx:if="{{userPoints >= item.cost_points}}" class="exchange-text">兑换</text>
+          <text wx:else class="exchange-text disabled-text">积分不足</text>
+        </view>
+
+        <view class="cut-out-top-left"></view>
+        <view class="cut-out-top-right"></view>
+        <view class="cut-out-bottom-left"></view>
+        <view class="cut-out-bottom-right"></view>
+      </view>
+    </block>
+  </view>
+
+  <view wx:if="{{coupons.length === 0}}" class="empty">暂无可兑换优惠券</view>
+  <exchange-modal isShow="{{isModalVisible}}" titleSummary="{{modalTitle}}元优惠券" pointSummary="{{modalPoints}}积分" rulesList="{{couponRules}}" bind:confirm="handleConfirmExchange" bind:cancel="handleCancel" />
+</view>

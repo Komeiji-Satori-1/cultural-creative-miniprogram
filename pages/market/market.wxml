@@ -1,0 +1,60 @@
+<!-- 顶部信息栏 -->
+<view class="info-bar">
+  <view class="info-row">
+    <text class="label">地址：</text>
+    <text class="content">西电南校区大学生活动中心107</text>
+  </view>
+</view>
+
+<!-- 可滚动列表 -->
+<scroll-view class="product-scroll" scroll-y="true">
+  <view class="product-list">
+    <block wx:for="{{product_info}}" wx:key="id">
+      <view class="product-card {{ item.stock == 0 ? 'sold-out' : '' }}">
+
+        <view wx:if="{{item.stock_status}}" class="stock-tag">
+          {{item.stock_status}}
+        </view>
+
+        <image
+          class="product-img"
+          src="{{ item.image_url }}"
+          mode="aspectFill"
+          bindtap="goDetail"
+          data-id="{{ item.id }}"
+        />
+
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-price">￥{{item.price}}</text>
+        <text class="product-stock">库存：{{item.stock}}</text>
+
+        <view class="btn-group">
+
+          <view bindtap="quantityChange"
+                data-id="{{item.id}}"
+                data-type="minus"
+                disabled="{{item.stock == 0}}">
+            -
+          </view>
+
+          <text>{{item.buy_quantity}}</text>
+
+          <view bindtap="quantityChange"
+                data-id="{{item.id}}"
+                data-type="plus"
+                disabled="{{item.stock == 0 || item.buy_quantity >= item.stock}}">
+            +
+          </view>
+
+        </view>
+
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<!-- 底部操作栏 -->
+<view class="cart-footer">
+  <view class="total">合计金额：<text class="price">￥{{totalPrice}}</text></view>
+  <view class="pay-btn" bindtap="createAndPayOrder">去支付</view>
+</view>

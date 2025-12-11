@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="title">售后与客服</view>
+
+  <view class="desc">
+    如需退换货或咨询，请通过以下方式联系客服：
+  </view>
+
+  <view class="card">
+
+    <view class="info-item">
+      <view class="label">客服微信</view>
+      <view class="value">{{service_wechat}}</view>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="info-item">
+      <view class="label">客服电话</view>
+      <view class="value">
+        {{service_phone}}
+      </view>
+    </view>
+
+  </view>
+
+  <view class="tip">
+    服务时间：每天 9:00 - 21:00
+  </view>
+</view>

@@ -1,0 +1,72 @@
+/* 整体容器 */
+.container {
+  padding: 40rpx;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* 标题 */
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 20rpx;
+}
+
+/* 描述文字 */
+.desc {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 40rpx;
+}
+
+/* 信息卡片 */
+.card {
+  background-color: #fafafa;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 每项信息行 */
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+/* 标签（如：客服微信） */
+.label {
+  font-size: 30rpx;
+  color: #333333;
+}
+
+/* 值（如：xxx 微信号） */
+.value {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #000000;
+}
+
+/* 点击电话的样式 */
+.phone {
+  color: #222222;
+  text-decoration: underline;
+}
+
+/* 分割线 */
+.divider {
+  height: 2rpx;
+  background-color: #e5e5e5;
+  margin: 0 0;
+}
+
+/* 底部提示 */
+.tip {
+  margin-top: 50rpx;
+  font-size: 26rpx;
+  color: #888888;
+  text-align: center;
+}

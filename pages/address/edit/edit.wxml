@@ -1,0 +1,9 @@
+<view class="container">
+<input class="input" placeholder="收货人姓名" value="{{receiver_name}}" bindinput="onNameInput" />
+<input class="input" placeholder="手机号" value="{{phone}}" bindinput="onPhoneInput" />
+<textarea class="textarea" placeholder="详细地址" value="{{detail}}" bindinput="onDetailInput"></textarea>
+
+
+<button class="save-btn" bindtap="saveAddress">保存</button>
+<button wx:if="{{id}}" class="delete-btn" bindtap="deleteAddress">删除地址</button>
+</view>

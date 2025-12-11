@@ -1,0 +1,9 @@
+{
+  "usingComponents": {"exchange-modal": "/components/exchange-modal/exchange-modal"},
+  "navigationBarTitleText": "积分兑换",
+  "navigationBarTextStyle":"black",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#FFFFFF",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

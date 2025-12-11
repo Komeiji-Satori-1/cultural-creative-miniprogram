@@ -1,0 +1,45 @@
+
+.small_background{
+  background-color: lawngreen;
+  width: 750rpx;
+  height: 100rpx;
+}
+.medium_background{
+  background-color: lawngreen;
+  width: 750rpx;
+  height: 200rpx;
+
+}
+.large_background{
+  background-color: lawngreen;
+  width: 750rpx;
+  height: 400rpx;
+}
+.top_heading{
+  height: 100rpx;
+  width: 750rpx;
+  background-color: darkkhaki;
+  font-size: 45rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight: bolder;
+}
+.Secondary_heading{
+  font-size: 40rpx;
+  text-shadow: maroon;
+}
+.third_heading{
+  font-size: 30rpx;
+  text-shadow: maroon;
+}
+.tips{
+  font-size: 25rpx;
+  background-color: rgb(192, 238, 234);
+  color: rgb(45, 199, 226);
+  border-radius: 10rpx;
+  text-align: center;
+}
+.icon{
+
+padding-right: 10rpx;
+}

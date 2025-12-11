@@ -1,0 +1,12 @@
+<view class="container">
+<view wx:for="{{addressList}}" wx:key="id" class="addr-item">
+<view class="info">
+<text class="name">{{item.receiver_name}}（{{item.phone}}）</text>
+<text class="detail">{{item.detail}}</text>
+</view>
+<button class="edit-btn" data-id="{{item.id}}" bindtap="editAddress">编辑</button>
+</view>
+
+
+<button class="add-btn" bindtap="addAddress">+ 新增地址</button>
+</view>

@@ -1,0 +1,55 @@
+<view class="container">
+
+<!-- 顶部分类 Tab -->
+<view class="tabs">
+  <view 
+    class="tab-item {{activeTab=='unused' ? 'active' : ''}}" 
+    data-tab="unused" 
+    bindtap="switchTab">
+    可使用
+  </view>
+
+  <view 
+    class="tab-item {{activeTab=='used' ? 'active' : ''}}" 
+    data-tab="used" 
+    bindtap="switchTab">
+    已使用
+  </view>
+
+  <view 
+    class="tab-item {{activeTab=='expired' ? 'active' : ''}}" 
+    data-tab="expired" 
+    bindtap="switchTab">
+    已过期
+  </view>
+</view>
+
+
+<!-- 优惠券列表内容 -->
+<block wx:for="{{displayCoupons}}" wx:key="id">
+  <view class="coupon-item {{item.status}}">
+
+    <!-- 左侧金额 -->
+    <view class="left">
+      <view class="amount">
+        <text class="currency">￥</text>{{item.discount}}
+      </view>
+      <view class="min">满 {{item.min_amount}} 可用</view>
+    </view>
+
+    <!-- 右侧内容 -->
+    <view class="right">
+      <view class="name">{{item.name}}</view>
+      <view class="date">有效期至：{{item.expires_at}}</view>
+
+      <view wx:if="{{item.status=='unused'}}" class="use-btn">
+        可使用
+      </view>
+      <view wx:if="{{item.status=='used'}}" class="status-tag used">已使用</view>
+      <view wx:if="{{item.status=='expired'}}" class="status-tag expired">已过期</view>
+    </view>
+
+  </view>
+</block>
+
+</view>
