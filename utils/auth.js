@@ -1,8 +1,6 @@
 const tabbarPages = [
-  'pages/myhome/myhome',
   'pages/market/market',
   'pages/order/order',
-  'pages/index/index'
 ];
 function isTabbarPage(route) {
   console.log(tabbarPages.includes(route))

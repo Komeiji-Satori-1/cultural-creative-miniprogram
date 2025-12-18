@@ -1,5 +1,3 @@
-// app.js
-// app.js
 App({
   globalData: {
     apiHost: "https://xdwenchuang.cn/api",   // 你自己的后端域名

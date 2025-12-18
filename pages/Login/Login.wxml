@@ -1,39 +1,75 @@
-<!--pages/Login/Login.wxml-->
-<view class="login-container">
-  <view class="login-card">
-    <image src="/images/sample/Logo.jpg" class="logo" mode="aspectFit" />
-    <text class="app-title">文创小程序</text>
+<view wx:if="{{needPrivacyAuth}}" class="privacy-container">
+  <view class="privacy-card">
+
+    <image class="privacy-icon" src="/images/privacy.png" />
+
+    <view class="privacy-text">
+      请阅读并同意
+      <text class="privacy-link" bindtap="openPrivacy">
+        《用户隐私保护指引》
+      </text>
+      后继续使用本小程序
+    </view>
 
     <button
-      class="login-btn"
-      open-type="getPhoneNumber"
-      bindgetphonenumber="handleGetPhoneNumber"
+      class="privacy-btn"
+      open-type="agreePrivacyAuthorization"
+      bindagreeprivacyauthorization="onAgreePrivacy"
+      type="primary"
     >
-      <image src="/images/wechat-icon.png" class="wechat-icon" /> 微信一键登录
+      同意并继续
     </button>
-    <!-- 蒙层 -->
-<view class="wx-mask" wx:if="{{showProfileModal}}">
-  <!-- 弹窗 -->
-  <view class="wx-dialog">
-
-    <image class="dialog-icon" src="/images/wechat-dialog.png"></image>
-
-    <view class="dialog-title">登录成功</view>
-    <view class="dialog-desc">是否授权头像和昵称，用于完善您的个人资料？</view>
-
-    <view class="dialog-buttons">
-      <button class="dialog-btn cancel" bindtap="handleGetProfileTap" data-skip="true">
-        暂不授权
-      </button>
-      <button class="dialog-btn confirm" bindtap="handleGetProfileTap">
-        授权头像昵称
-      </button>
-    </view>
 
   </view>
 </view>
 
 
-    <text class="login-hint">登录即代表同意《用户隐私政策》</text>
+<!-- 登录内容区（已同意隐私后） -->
+<view wx:else class="login-container">
+  <view class="login-card">
+
+    <!-- LOGO -->
+    <image src="/images/sample/Logo.jpg" class="logo" mode="aspectFit" />
+
+    <!-- APP 名称 -->
+    <text class="app-title">文创小程序</text>
+
+    <!-- 手机号登录按钮 -->
+    <button
+      class="login-btn"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="handleGetPhoneNumber"
+    >
+      <image src="/images/sample/Logo.jpg" class="wechat-icon" />
+      手机号快捷登录
+    </button>
+
+    <!-- 授权头像昵称弹窗 -->
+    <view class="wx-mask" wx:if="{{showProfileModal}}">
+      <view class="wx-dialog">
+        <image class="dialog-icon" src="/images/wechat-dialog.png" />
+        <view class="dialog-title">登录成功</view>
+        <view class="dialog-desc">
+          是否授权头像和昵称，用于完善您的个人资料？
+        </view>
+
+        <view class="dialog-buttons">
+          <button
+            class="dialog-btn cancel"
+            bindtap="handleGetProfileTap"
+            data-skip="true"
+          >
+            暂不授权
+          </button>
+          <button
+            class="dialog-btn confirm"
+            bindtap="handleGetProfileTap"
+          >
+            授权头像昵称
+          </button>
+        </view>
+      </view>
+    </view>
+
   </view>
 </view>

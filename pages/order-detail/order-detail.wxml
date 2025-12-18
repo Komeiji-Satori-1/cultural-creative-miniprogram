@@ -84,16 +84,31 @@
     </view>
   </scroll-view>
 
-  <view class="after-sale-btn" bindtap="goAfterSale" style="position: fixed; left: 0rpx; top: 1328rpx" wx:if="{{order.status=='paid'}}">
-    联系售后客服
-  </view>
+
 
   <!-- 底部操作按钮 -->
-  <view class="bottom-btns">
-    <button wx:if="{{order.status=='pending'}}" class="btn" type="primary" bindtap="payNow" style="position: relative; left: -20rpx; top: 20rpx">立即支付</button>
-    <button wx:if="{{order.status=='pending'}}" class="btn cancel" bindtap="cancelOrder" style="position: relative; left: -20rpx; top: 20rpx">取消订单</button>
+  <view class="bottom-bar">
 
-    <button wx:if="{{order.status=='shipped'}}" class="btn" type="primary" bindtap="viewLogistics">查看物流</button>
-    <button wx:if="{{order.status=='completed'}}" class="btn" bindtap="goAfterSale">联系商家</button>
+    <!-- 待支付 -->
+    <block wx:if="{{order.status=='pending'}}">
+      <view class="btn cancel" bindtap="cancelOrder">取消订单</view>
+      <view class="btn primary" bindtap="payNow">立即支付</view>
+    </block>
+
+    <!-- 已支付 -->
+    <block wx:if="{{order.status=='paid'}}">
+      <view class="btn primary full" bindtap="goAfterSale">联系售后客服</view>
+    </block>
+
+    <!-- 已发货 -->
+    <block wx:if="{{order.status=='shipped'}}">
+      <view class="btn primary full" bindtap="viewLogistics">查看物流</view>
+    </block>
+
+    <!-- 已完成 -->
+    <block wx:if="{{order.status=='completed'}}">
+      <view class="btn primary full" bindtap="goAfterSale">联系商家</view>
+    </block>
+
   </view>
 </view>

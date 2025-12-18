@@ -1,6 +1,6 @@
 const app = getApp()
 const apiHost = app.globalData.apiHost
-const openid = app.globalData.openid
+const openid = app.globalData.openid || wx.getStorageSync('openid')
 const { payOrder } = require('../../utils/payment.js');
 
 Page({
@@ -134,7 +134,6 @@ Page({
       wx.showToast({ title: "请选择地址", icon: "none" });
       return;
     }
-
     payOrder({
       orderId: this.data.orderId,
       encrypted_id:this.data.encrypted_id,
@@ -147,7 +146,7 @@ Page({
           wx.removeStorageSync('product_buy_quantity');
           wx.removeStorageSync('orderInfo');
           wx.redirectTo({
-            url: `/pages/orderDetail/orderDetail?OrderId=${this.data.encrypted_id}`
+            url: `/pages/order-detail/order-detail?OrderId=${this.data.encrypted_id}`
           });
         } else {
           wx.showToast({ title: '支付失败', icon: 'none' });

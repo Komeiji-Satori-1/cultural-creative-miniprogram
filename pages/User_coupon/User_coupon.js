@@ -1,6 +1,6 @@
 const app = getApp()
 const apiHost = app.globalData.apiHost
-const openid = app.globalData.openid
+const openid = app.globalData.openid || wx.getStorageSync('openid')
 Page({
   data: {
     activeTab: "unused",

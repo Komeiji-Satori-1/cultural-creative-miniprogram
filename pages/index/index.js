@@ -1,5 +1,3 @@
-// index.js
-const { checkLogin } = require('../../utils/auth.js');
 Page({
   data: {
     banners: [
@@ -10,10 +8,6 @@ Page({
   },
 
   onShow() {
-    const loggedIn = checkLogin();
-    if (!loggedIn) return; // 阻止后续逻辑执行
-
-    // 通过检查后可以安全调用接口
     console.log('用户已登录');
   },
   navigateTo_market() {

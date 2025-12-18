@@ -96,33 +96,28 @@
 }
 
 /* 售后按钮 */
-.after-sale-btn {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 100rpx;
-  line-height: 80rpx;
-  background-color: #4caf50;
-  color: #fff;
-  text-align: center;
-  font-size: 32rpx;
-}
-
-/* 底部按钮组 */
-.bottom-btns {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  padding: 20rpx;
-  display: flex;
-  justify-content: space-around;
-}
 .btn {
   flex: 1;
-  margin: 0 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  font-size: 30rpx;
 }
-.cancel {
+.bottom-bar {
+  display: flex;
+  gap: 20rpx;   /* 两个按钮之间的间距 */
+}
+.btn.primary {
+  background: #4caf50;
+  color: #fff;
+}
+
+.btn.cancel {
   background: #e64340;
-  color: white;
+  color: #fff;
+}
+
+.btn.full {
+  flex: 1;
 }

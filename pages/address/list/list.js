@@ -1,5 +1,6 @@
 const app = getApp();
 const apiHost = app.globalData.apiHost;
+const openid = app.globalData.openid || wx.getStorageSync('openid')
 
 
 Page({
@@ -11,7 +12,7 @@ onShow() { this.loadAddresses(); },
 
 loadAddresses() {
 wx.request({
-url: `${apiHost}/users/address/${app.globalData.openid}/`,
+url: `${apiHost}/users/address/${openid}/`,
 success: (res) => { this.setData({ addressList: res.data }); }
 });
 },

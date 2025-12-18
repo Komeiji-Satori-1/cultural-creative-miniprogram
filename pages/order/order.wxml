@@ -1,27 +1,29 @@
 <!--pages/order/order.wxml-->
-<view class="order-list-container">
-  <block wx:for="{{orders}}" wx:key="id">
-    <view class="order-card" bind:tap="goOrderdetail" data-id="{{ item.encrypted_id }}">
-      <view class="order-header">
-        <text style="width: 590rpx; display: block; box-sizing: border-box">订单号：{{item.encrypted_id}}</text>
-        <text class="status {{item.status}}" style="height: 48rpx; display: block; box-sizing: border-box">{{item.status}}</text>
-      </view>
-
-      <block wx:for="{{item.items}}" wx:key="id">
-        <view class="order-item">
-          <image src="{{item.product_image}}" class="product-img" mode="aspectFill" />
-          
-          <view class="info">
-            <text class="name">{{item.product.name}}</text>
-            <text class="price">¥{{item.price}} × {{item.quantity}}</text>
-          </view>
+<scroll-view class="order-scroll" scroll-y lower-threshold="80" bindscrolltolower="loadMoreOrders">
+  <view class="order-list-container">
+    <block wx:for="{{orders}}" wx:key="id">
+      <view class="order-card" bind:tap="goOrderdetail" data-id="{{ item.encrypted_id }}">
+        <view class="order-header">
+          <text style="width: 590rpx; display: block; box-sizing: border-box">订单号：{{item.encrypted_id}}</text>
+          <text class="status {{item.status}}" style="height: 48rpx; display: block; box-sizing: border-box">{{item.status}}</text>
         </view>
-      </block>
 
-      <view class="total">总金额：<text class="highlight">¥{{item.total_amount}}</text></view>
-    </view>
-  </block>
+        <block wx:for="{{item.items}}" wx:key="id">
+          <view class="order-item">
+            <image src="{{item.product_image}}" class="product-img" mode="aspectFill" />
 
-  <view wx:if="{{loading}}" class="loading">加载中...</view>
-  <view wx:if="{{noMore}}" class="no-more">没有更多订单啦~</view>
-</view>
+            <view class="info">
+              <text class="name">{{item.product.name}}</text>
+              <text class="price">¥{{item.price}} × {{item.quantity}}</text>
+            </view>
+          </view>
+        </block>
+
+        <view class="total">总金额：<text class="highlight">¥{{item.total_amount}}</text></view>
+      </view>
+    </block>
+
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    <view wx:if="{{noMore}}" class="no-more">没有更多订单啦~</view>
+  </view>
+</scroll-view>

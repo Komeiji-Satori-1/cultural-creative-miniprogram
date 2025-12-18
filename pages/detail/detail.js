@@ -69,8 +69,6 @@ Page({
     const quantity = this.data.buy_quantity;
     let item = [wx.getStorageSync('item')]
     item[0].buy_quantity=quantity
-    console.log("detail页面的product",product)
-    console.log("由market页面传入的item",item)
     // 下单逻辑（同之前 payOrder 封装）
     wx.request({
       url: `${apiHost}/orders/wechat_post_order/`,

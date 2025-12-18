@@ -1,6 +1,6 @@
 const { checkLogin } = require('../../utils/auth');
-const app = getApp()
-const apiHost = app.globalData.apiHost
+const app = getApp();
+
 Page({
   data: {
     orders: [],
@@ -8,43 +8,67 @@ Page({
     loading: false,
     noMore: false
   },
+
   onShow() {
     if (!checkLogin()) return;
 
-    // 如果用户从后台返回，要重新刷新订单
-    this.setData({ orders: [], page: 1, noMore: false });
-    this.loadOrders();
+    // 返回页面时强制刷新
+    this.resetAndLoad();
   },
+
   onLoad() {
+    this.resetAndLoad();
+  },
+
+  // 🔁 重置并重新加载
+  resetAndLoad() {
+    this.setData({
+      orders: [],
+      page: 1,
+      loading: false,
+      noMore: false
+    });
     this.loadOrders();
   },
 
+  // 📦 加载订单
   loadOrders() {
     if (this.data.loading || this.data.noMore) return;
 
-    this.setData({ loading: true });
     const token = wx.getStorageSync('token');
+    const openid = app.globalData.openid || wx.getStorageSync('openid');
+
+    if (!openid) {
+      console.warn('openid 不存在，终止请求');
+      return;
+    }
+
+    this.setData({ loading: true });
+
     wx.request({
-      url: `${apiHost}/orders/user-orders/?page=${this.data.page}`,
+      url: `${app.globalData.apiHost}/orders/user-orders/`,
       method: 'GET',
       header: {
         Authorization: 'Token ' + token
-
       },
       data: {
-        openid: wx.getStorageSync('openid'),
+        page: this.data.page,
+        openid: openid
       },
       success: (res) => {
-        const newOrders = res.data.results;
-        if (newOrders.length > 0) {
+        const results = res.data?.results || [];
+
+        if (results.length > 0) {
           this.setData({
-            orders: this.data.orders.concat(newOrders),
+            orders: this.data.orders.concat(results),
             page: this.data.page + 1
           });
-
         } else {
           this.setData({ noMore: true });
         }
+      },
+      fail(err) {
+        console.error('加载订单失败', err);
       },
       complete: () => {
         this.setData({ loading: false });
@@ -52,21 +76,19 @@ Page({
     });
   },
 
-  // 下拉刷新
-  onPullDownRefresh() {
-    this.setData({ orders: [], page: 1, noMore: false });
+  loadMoreOrders() {
     this.loadOrders();
+  },
+
+  onPullDownRefresh() {
+    this.resetAndLoad();
     wx.stopPullDownRefresh();
   },
 
-  // 滚动到底部加载更多
-  onReachBottom() {
-    this.loadOrders();
-  },
   goOrderdetail(e) {
-    const OrderId = e.currentTarget.dataset.id;
+    const orderId = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/orderDetail/orderDetail?OrderId=${OrderId}`
+      url: `/pages/order-detail/order-detail?OrderId=${orderId}`
     });
   }
 });

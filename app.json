@@ -9,7 +9,7 @@
     "pages/latest_items/latest_items",
     "pages/refund/refund",
     "pages/detail/detail",
-    "pages/orderDetail/orderDetail",
+    "pages/order-detail/order-detail",
     "pages/address/list/list",
     "pages/address/edit/edit",
     "pages/confirm_order/confirm_order",

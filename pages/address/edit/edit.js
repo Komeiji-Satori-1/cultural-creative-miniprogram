@@ -1,5 +1,6 @@
 const app = getApp()
 const apiHost = app.globalData.apiHost
+const openid = app.globalData.openid || wx.getStorageSync('openid')
 
 Page({
   data: {
@@ -83,7 +84,6 @@ Page({
     if (!this.validate()) return
 
     const { receiver_name, phone, detail, address_id } = this.data
-    const user_openid = wx.getStorageSync('openid')
 
     const data = {
       receiver_name,
@@ -105,7 +105,7 @@ Page({
     } else {
       // 新增地址
       wx.request({
-        url: `${apiHost}/users/address/${user_openid}/`,
+        url: `${apiHost}/users/address/${openid}/`,
         method: "POST",
         data,
         success: () => {

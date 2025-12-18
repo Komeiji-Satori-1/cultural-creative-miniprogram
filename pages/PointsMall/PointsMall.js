@@ -1,14 +1,15 @@
 const app = getApp()
-const apiHost = app.globalData.apiHost; // 替换为你的后端地址
+const apiHost = app.globalData.apiHost;
+const openid = app.globalData.openid || wx.getStorageSync('openid')
 Page({
   data: {
     isModalVisible: false,
     modalTitle: '',
     modalPoints: '',
-    couponsID:0,
-    couponRules: [ 
-      "优惠券即日起生效", 
-      "每人每天限领1张", 
+    couponsID: 0,
+    couponRules: [
+      "优惠券即日起生效",
+      "每人每天限领1张",
       "至少消费20元才可使用"
     ],
     coupons: [],
@@ -23,18 +24,18 @@ Page({
     const id = e.currentTarget.dataset.id;
     const title = e.currentTarget.dataset.title;
     const points = e.currentTarget.dataset.points;
-    const coupon = this.data.coupons.find(c=>c.id===id)
+    const coupon = this.data.coupons.find(c => c.id === id)
     const rules = [];
     if (coupon.min_amount > 0) {
       rules.push(`满 ${coupon.min_amount} 元可使用`);
     } else {
       rules.push("无最低消费金额限制");
     }
-  
+
     rules.push(`可减免 ${coupon.discount_amount} 元`);
-  
+
     rules.push("每人每天限领 1 张");
-  
+
     const start = coupon.start_time ? coupon.start_time.slice(0, 10) : "无";
     const end = coupon.end_time ? coupon.end_time.slice(0, 10) : "无";
     rules.push(`可兑换时间：${start} 至 ${end}`);
@@ -42,7 +43,7 @@ Page({
       isModalVisible: true,
       modalTitle: title,
       modalPoints: points,
-      couponsID:id,
+      couponsID: id,
       couponRules: rules
     });
   },
@@ -50,10 +51,9 @@ Page({
     this.exchangeCoupon()
   },
   loadCoupons() {
-    const openid = wx.getStorageSync('openid');
     wx.request({
       url: `${apiHost}/products/coupon/list/`,
-      data:{openid:openid},
+      data: { openid: openid },
       success: res => {
         const coupons = res.data.data.filter(c => c.is_exchange);
         this.setData({
@@ -66,11 +66,10 @@ Page({
 
   exchangeCoupon() {
     const Id = this.data.couponsID;
-    const openid = wx.getStorageSync('openid')
     wx.request({
       url: `${apiHost}/products/coupon/exchange/`,
       method: 'POST',
-      data: { coupon_id: Id ,openid: openid},
+      data: { coupon_id: Id, openid: openid },
       success: res => {
         if (res.data.code === 200) {
           wx.showToast({ title: '兑换成功', icon: 'success' });

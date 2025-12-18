@@ -6,7 +6,46 @@ page {
   justify-content: center;
   align-items: center;
 }
+.privacy-container {
+  position: fixed;
+  inset: 0;
+  background: #f6f7f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 
+.privacy-card {
+  width: 640rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 50rpx 40rpx;
+  text-align: center;
+  box-shadow: 0 20rpx 40rpx rgba(0,0,0,.08);
+}
+
+.privacy-icon {
+  width: 96rpx;
+  height: 96rpx;
+  margin-bottom: 30rpx;
+}
+
+.privacy-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 44rpx;
+  margin-bottom: 40rpx;
+}
+
+.privacy-link {
+  color: #4caf50;
+  margin: 0 6rpx;
+}
+
+
+
+/* 登录容器 */
 .login-container {
   display: flex;
   justify-content: center;
@@ -14,6 +53,7 @@ page {
   height: 100%;
 }
 
+/* 登录卡片 */
 .login-card {
   background: #fff;
   border-radius: 20rpx;
@@ -21,15 +61,18 @@ page {
   padding: 60rpx 50rpx;
   width: 80%;
   text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
+  animation: fadeInUp 0.8s ease-in-out;
+  /* 卡片弹出动画 */
 }
 
+/* Logo */
 .logo {
   width: 160rpx;
   height: 160rpx;
   margin-bottom: 20rpx;
 }
 
+/* APP 标题 */
 .app-title {
   font-size: 36rpx;
   color: #333;
@@ -37,6 +80,7 @@ page {
   margin-bottom: 60rpx;
 }
 
+/* 登录按钮 */
 .login-btn {
   background: #07c160;
   color: #fff;
@@ -56,12 +100,14 @@ page {
   background: #06ae56;
 }
 
+/* 微信图标 */
 .wechat-icon {
   width: 40rpx;
   height: 40rpx;
   margin-right: 10rpx;
 }
 
+/* 提示文字 */
 .login-hint {
   font-size: 24rpx;
   color: #888;
@@ -69,12 +115,13 @@ page {
   display: block;
 }
 
-/* 动画效果 */
-@keyframes fadeIn {
+/* 动画效果 - 登录卡片 & 弹窗 */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20rpx);
+    transform: translateY(30rpx);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -84,8 +131,11 @@ page {
 /* 遮罩 */
 .wx-mask {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.45);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(3px);
   display: flex;
   justify-content: center;
@@ -101,8 +151,9 @@ page {
   border-radius: 18rpx;
   padding: 50rpx 40rpx 40rpx;
   text-align: center;
-  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.15);
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.15);
   animation: fadeInUp 0.24s ease-out;
+  /* 弹窗弹出动画 */
 }
 
 /* 顶部图标 */
@@ -154,16 +205,3 @@ page {
   background: #07c160;
   color: #fff;
 }
-
-/* 弹出动画 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30rpx);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-

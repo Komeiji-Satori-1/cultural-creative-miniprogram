@@ -6,7 +6,7 @@
   <view class="user-info">
     <image src="{{userInfo.avatar_url || 'https://xdwenchuang.cn/static_assets/Logo.jpg'}}" class="avatar"></image>
     <view class="nickname">{{userInfo.nickname || '未登录用户'}}</view>
-    <view class="phone">{{userInfo.phone || '点击完善手机号'}}</view>
+    <view class="phone">{{userInfo.phone || '点击完善用户信息'}}</view>
   </view>
 </view>
 

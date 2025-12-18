@@ -1,6 +1,7 @@
 const { checkLogin } = require('../../utils/auth');
 const app = getApp()
 const apiHost = app.globalData.apiHost
+const openid = app.globalData.openid || wx.getStorageSync('openid')
 Page({
   data: {
     product_info: [],
@@ -41,10 +42,9 @@ Page({
   },
   checkAddress(){
     const phone = wx.getStorageSync('phoneNumber')
-    const openid = wx.getStorageSync('openid')
     if(!phone||!openid) return
     wx.request({
-      url: `${apiHost}/users/address/${app.globalData.openid}/`,
+      url: `${apiHost}/users/address/${openid}/`,
       method:'GET',
       success:(res) => {
         

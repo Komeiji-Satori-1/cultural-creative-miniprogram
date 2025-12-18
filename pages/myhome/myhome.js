@@ -1,4 +1,3 @@
-const { checkLogin } = require('../../utils/auth');
 const app = getApp()
 const apiHost = app.globalData.apiHost
 Page({
@@ -10,7 +9,6 @@ Page({
   },
 
   onShow() {
-    if (!checkLogin()) return;
     this.loadUserInfo();
   },
 
